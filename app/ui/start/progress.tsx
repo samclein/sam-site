@@ -15,7 +15,6 @@ export const useProgress = () => {
       setTimeout(() => setProgress(99), 1000),
       setTimeout(() => setProgress(100), 1600),
     ];
-
     return () => timers.forEach(clearTimeout);
   }, []);
   return progress;
