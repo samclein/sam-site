@@ -1,6 +1,7 @@
 "use client";
 
 import { ProgressBar } from "./progress";
+import { p2p } from "../fonts";
 import { useProgress } from "@/app/ui/start/progress";
 
 export const StartMenu: React.FC = () => {
@@ -8,5 +9,5 @@ export const StartMenu: React.FC = () => {
   if (progress !== 100) {
     return <ProgressBar progress={progress} />;
   }
-  return <button>Start!</button>;
+  return <button className={`${p2p.className}`}>Start!</button>;
 };

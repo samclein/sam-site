@@ -10,13 +10,13 @@ export const useProgress = () => {
   const [progress, setProgress] = useState(3);
 
   useEffect(() => {
-    const timer50 = setTimeout(() => setProgress(50), 150);
-    const timer100 = setTimeout(() => setProgress(100), 1000);
+    const timers = [
+      setTimeout(() => setProgress(50), 150),
+      setTimeout(() => setProgress(99), 800),
+      setTimeout(() => setProgress(100), 1200),
+    ];
 
-    return () => {
-      clearTimeout(timer50);
-      clearTimeout(timer100);
-    };
+    return () => timers.forEach(clearTimeout);
   }, []);
   return progress;
 };
