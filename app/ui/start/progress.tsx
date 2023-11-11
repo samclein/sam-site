@@ -12,8 +12,8 @@ export const useProgress = () => {
   useEffect(() => {
     const timers = [
       setTimeout(() => setProgress(50), 150),
-      setTimeout(() => setProgress(99), 800),
-      setTimeout(() => setProgress(100), 1200),
+      setTimeout(() => setProgress(99), 1000),
+      setTimeout(() => setProgress(100), 1600),
     ];
 
     return () => timers.forEach(clearTimeout);
