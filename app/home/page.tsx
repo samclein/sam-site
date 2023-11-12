@@ -20,9 +20,9 @@ export default function Home() {
               href={option.route}
               key={option.route}
               className={
-                "outline-none focus:animate-pulse focus:text-blue-500 focus:animate-duration-500"
+                "outline-none hover:text-blue-300 focus:animate-pulse focus:text-blue-500 focus:animate-duration-500"
               }
-              autoFocus={index === 0}
+              autoFocus={index == 0}
             >
               <GameText delay={prompt.length}>{"> " + option.text}</GameText>
             </Link>
