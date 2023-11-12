@@ -11,5 +11,5 @@ export const StartMenu: React.FC = () => {
     return <ProgressBar progress={progress} />;
   }
 
-  return <StartButton />;
+  return <StartButton href="/home" />;
 };

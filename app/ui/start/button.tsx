@@ -1,38 +1,30 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { GameText } from "@/app/ui/start/game-text";
+import Link from "next/link";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
-import { p2p } from "../fonts";
-
-export const StartButton: React.FC = () => {
-  const finalStartText = "Press Enter to Start";
-  const [startText, setStartText] = useState("");
+export const StartButton: React.FC<{ href: string }> = ({ href }) => {
+  const router = useRouter();
 
   useEffect(() => {
-    const timers = finalStartText
-      .split("")
-      .map((char, index) =>
-        setTimeout(
-          () =>
-            setStartText(
-              (prevText) =>
-                prevText.replace("_", "") +
-                `${char}${index === finalStartText.length - 1 ? "" : "_"}`
-            ),
-          index * 75
-        )
-      );
-    return () => timers.forEach(clearTimeout);
-  }, []);
+    const keyDownHandler = (event: KeyboardEvent) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        router.push(href);
+      }
+    };
+    document.addEventListener("keydown", keyDownHandler);
+    return () => document.removeEventListener("keydown", keyDownHandler);
+  }, [href, router]);
 
   return (
-    <button
-      className={`${p2p.className} hover:white shadow-blackA4 inline-flex h-[40px] border-solid border-2 border-white items-center justify-center rounded-[4px] bg-black px-[15px] font-medium leading-none shadow-[0_2px_10px] outline-none focus:shadow-[0_0_0_2px] focus:shadow-blue-300`}
+    <Link
+      href={href}
+      className={`inline-flex h-[40px] items-center justify-center rounded-[4px] border-2 border-solid border-white bg-black px-[15px] hover:shadow-[0_0_0_4px] hover:shadow-blue-300 focus:shadow-[0_0_0_4px] focus:shadow-blue-800`}
     >
-      {startText}
-      {startText === finalStartText && (
-        <p className="animate-fade animate-infinite animate-delay-100"> _</p>
-      )}
-    </button>
+      <GameText showCursor={true}>Press Enter to Start</GameText>
+    </Link>
   );
 };
