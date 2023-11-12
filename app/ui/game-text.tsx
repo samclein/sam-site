@@ -35,12 +35,14 @@ const useStaggeredText = ({
 };
 
 interface GameTextProps {
+  className?: string;
   children: string;
   delay?: number;
   showCursor?: boolean;
 }
 
 export const GameText: React.FC<GameTextProps> = ({
+  className,
   children: finalText,
   delay = 0,
   showCursor = false,
@@ -48,9 +50,9 @@ export const GameText: React.FC<GameTextProps> = ({
   const staggeredText = useStaggeredText({ finalText, delay });
   return (
     <div
-      className={`${p2p.className} inline-flex items-center justify-center `}
+      className={`${p2p.className} inline-flex items-center justify-center ${className}`}
     >
-      <p>&nbsp;{staggeredText}</p>
+      <p>{staggeredText}&nbsp;</p>
       {showCursor && staggeredText === finalText && (
         <p className="animate-fade animate-delay-100 animate-infinite"> _</p>
       )}
