@@ -1,6 +1,6 @@
 "use client";
 
-import { GameText } from "@/app/ui/start/game-text";
+import { GameText } from "@/app/ui/game-text";
 import Link from "next/link";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";

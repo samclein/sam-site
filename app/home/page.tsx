@@ -1,10 +1,9 @@
-import { GameText } from "@/app/ui/start/game-text";
+import { GameText } from "@/app/ui/game-text";
 import Link from "next/link";
 import { p2p } from "../ui/fonts";
 
 export default function Home() {
   const prompt = "Please choose an option:";
-  const delayForPrompt = prompt.length * 75;
   const options = [
     { text: "CV", route: "cv" },
     { text: "About Me", route: "about" },
@@ -25,7 +24,7 @@ export default function Home() {
               }
               autoFocus={index === 0}
             >
-              <GameText delay={delayForPrompt}>{"> " + option.text}</GameText>
+              <GameText delay={prompt.length}>{"> " + option.text}</GameText>
             </Link>
           ))}
         </div>

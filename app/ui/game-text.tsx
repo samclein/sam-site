@@ -25,7 +25,7 @@ const useStaggeredText = ({
                 prevText.replace("_", "") +
                 `${char}${index === finalText.length - 1 ? "" : "_"}`,
             ),
-          delay + index * GAME_TEXT_MS_PER_CHAR,
+          (delay + index) * GAME_TEXT_MS_PER_CHAR,
         ),
       );
     return () => timers.forEach(clearTimeout);
