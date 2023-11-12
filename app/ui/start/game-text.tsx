@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import { p2p } from "@/app/ui/fonts";
 
-export const GAME_TEXT_MS_PER_CHAR = 75;
+const GAME_TEXT_MS_PER_CHAR = 75;
 
 const useStaggeredText = ({
   finalText,
