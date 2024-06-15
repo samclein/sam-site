@@ -47,7 +47,7 @@ export default function CV() {
           />
           <div>
             <h3 className="text-xl">Living In</h3>
-            <GameText className="text-sm">London, UK</GameText>
+            <GameText className="text-sm">New York, US</GameText>
           </div>
         </div>
         <div className="flex flex-row items-center gap-4">
